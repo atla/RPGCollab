@@ -1,0 +1,25 @@
+<div class="columns">
+  <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="column col-4">
+
+    <div class="card">
+
+      <div class="card-image">
+        <img src="http://localhost:3000/card_back.jpg" class="img-responsive" alt="Card image cap">
+      </div>
+
+
+      <div class="card-header">
+        <h4 class="card-title">{{hero.name}}</h4>
+        <h6 class="card-meta">I need a hero</h6>
+      </div>
+
+      <div class="card-body">
+        {{hero.description}}
+      </div>
+
+      <div class="card-footer">
+        <button href="#" class="btn btn-primary">View Detail</button>
+      </div>
+    </div>
+  </div>
+</div>
