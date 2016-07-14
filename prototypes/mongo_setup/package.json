@@ -1,0 +1,10 @@
+{
+  "name": "db-setup",
+  "description": "Setup RPGCollab MongoDB structure",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "mongoose": "*"
+  }
+}
+
