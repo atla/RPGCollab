@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/rpgcollab');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
 // Setup Database scheme
 
@@ -14,7 +16,7 @@ var CommentSchema = new Schema({
     date:Date
 })
 
-var ProjectModel = new Schema({
+var ProjectSchema = new Schema({
     name: String,
     subtitle: String,
     creator: UserSchema,
@@ -22,7 +24,7 @@ var ProjectModel = new Schema({
     summary: String,
     description: String,
     comments: [CommentSchema],
-    created: {type: Date, default: Date.now},
+    created: {type: Date, default: Date.now()},
     private: {type: Boolean, default: false},
     meta: {
         votes: Number,
@@ -31,8 +33,8 @@ var ProjectModel = new Schema({
 }
 );
 
-var userModel = mongoose.model('User', UserSchema);
-var projectModel = mongoose.model('Project', ProjectModel);
+var User = mongoose.model('User', UserSchema);
+var Project = mongoose.model('Project', ProjectSchema);
 
 
 // Setup test data
@@ -48,10 +50,10 @@ project1.name = 'Leihwelt Reboot 2';
 project1.subtitle = 'Gonna try it again!';
 project1.creator = user1;
 project1.comments = [
-    {text:'Setting up the initial idea', author: user1, date: Date.now},
-    {text:'Some random comment', author: user1, date: Date.now},
-    {text:'This is gonna be good', author: user2, date: Date.now},
-    {text:'SHould be discussing this', author: user1, date: Date.now},
+    {text:'Setting up the initial idea', author: user1, date: Date.now()},
+    {text:'Some random comment', author: user1, date: Date.now()},
+    {text:'This is gonna be good', author: user2, date: Date.now()},
+    {text:'SHould be discussing this', author: user1, date: Date.now()},
 ]
 
 project1.save(function (err){
