@@ -1,0 +1,32 @@
+<section>
+
+<h2>Projects Overview</h2>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>ID</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let project of projects" (click)="onSelect(project)" [class.selected]="project === selectedProject">
+      <td>{{project.name}}</td>
+      <td>{{project._id}}</td>
+      <td><button (click)="deleteProject(project, $event)" class="btn btn-primary">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+</section>
+
+<div class="error" *ngIf="error">{{error}}</div>
+
+<div *ngIf="selectedProject">
+  <h2>
+    {{selectedProject.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail(selectedProject)">View Details</button>
+</div>
+

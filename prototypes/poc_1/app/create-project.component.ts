@@ -1,27 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { ProjectService } from './project.service';
+import { Project } from './project';
+
+
+import {
+  FORM_DIRECTIVES,
+  REACTIVE_FORM_DIRECTIVES,
+  FormGroup
+} from '@angular/forms';
 
 @Component({
   selector: 'create-project',
   templateUrl: 'app/create-project.component.html',
-  styleUrls: ['app/dashboard.component.css']
+  directives: [FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
 })
 
-export class CreateProjectComponent implements OnInit {
-//  heroes: Hero[] = [];
-  constructor(private router: Router,
-              private heroService: HeroService) { }
+export class CreateProjectComponent {
 
-  ngOnInit() {
-   // this.heroService.getHeroes()
-     // .then(heroes => this.heroes = heroes.slice(0, 3));
+  createProjectFormm: FormGroup;
+
+  model = new Project ();
+  submitted = false;
+
+  constructor(private router: Router,
+    private projectService: ProjectService) {
   }
 
-  gotoDetail(hero: Hero) {
-   // let link = ['/detail', hero.id];
-   // this.router.navigate(link);
+  onSubmit() {
+
+  if (!this.submitted){
+    this.submitted = true;
+      console.log('you submitted value: ', this.model);
+      this.projectService.save (this.model);
   }
 }
+

@@ -1,13 +1,13 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-import { HeroesComponent } from './heroes.component';
+import { ProjectsComponent } from './projects.component';
 import { DashboardComponent }from './dashboard.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { ProjectDetailComponent } from './project-detail.component';
 import { CreateProjectComponent } from './create-project.component';
 
 const routes: RouterConfig = [
   {
-    path: 'heroes',
-    component: HeroesComponent
+    path: 'projects',
+    component: ProjectsComponent
   },
   {
     path: 'dashboard',
@@ -19,7 +19,7 @@ const routes: RouterConfig = [
   },
   {
     path: 'detail/:id',
-    component: HeroDetailComponent
+    component: ProjectDetailComponent
   },
   {
     path: '',

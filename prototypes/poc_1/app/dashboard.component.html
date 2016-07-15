@@ -1,5 +1,5 @@
 <div class="columns">
-  <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="column col-4">
+  <div *ngFor="let project of projects" (click)="gotoDetail(project)" class="column col-4">
 
     <div class="card">
 
@@ -9,12 +9,12 @@
 
 
       <div class="card-header">
-        <h4 class="card-title">{{hero.name}}</h4>
+        <h4 class="card-title">{{project.name}}</h4>
         <h6 class="card-meta">I need a hero</h6>
       </div>
 
       <div class="card-body">
-        {{hero.description}}
+        {{project.description}}
       </div>
 
       <div class="card-footer">

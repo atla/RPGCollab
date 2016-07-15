@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
-import { HeroService }     from './hero.service';
+import { ProjectService }     from './project.service';
+
 @Component({
   selector: 'my-app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES],
   providers: [
-    HeroService
+    ProjectService
   ]
 })
+
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'RPG Collab';
 
  constructor(private router: Router,
-              private heroService: HeroService) { }
+              private projectService: ProjectService) { }
 
   createProject () {
       let link = ['/createProject'];

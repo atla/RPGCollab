@@ -13,7 +13,8 @@ import { APP_ROUTER_PROVIDERS } from './app.routes';
 
 bootstrap(AppComponent, [
   APP_ROUTER_PROVIDERS,
-  HTTP_PROVIDERS,
+  HTTP_PROVIDERS
+  /*,
   { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
-  { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
+  { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data*/
 ]);
