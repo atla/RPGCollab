@@ -45,6 +45,8 @@ export class ProjectService {
   private post(project: Project): Promise<Project> {
 
     let json = JSON.stringify(project);
+console.log(json);
+
     let headers = new Headers({
       'Content-Type': 'application/json'});
     return this.http

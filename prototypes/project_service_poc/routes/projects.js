@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'); 
 mongoose.connect('mongodb://192.168.2.112/rpgcollab');
 
 var Schema = mongoose.Schema;
@@ -57,7 +57,13 @@ exports.findAll = function(req, res) {
 };
 
 exports.addProject = function(req, res) {
+
+console.log ('Request: ' + req);
+console.log ('Request body: ' + req.body);
+
     var pro = new Project (req.body);
+    console.log ('Crating new project ' + pro);
+
     pro.save(function(err, result){
         if (err) return handleError(err);
         res.send('Project created');

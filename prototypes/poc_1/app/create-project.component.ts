@@ -21,7 +21,7 @@ export class CreateProjectComponent {
 
   createProjectFormm: FormGroup;
 
-  model = new Project ();
+  model = new Project();
   submitted = false;
 
   constructor(private router: Router,
@@ -30,10 +30,10 @@ export class CreateProjectComponent {
 
   onSubmit() {
 
-  if (!this.submitted){
-    this.submitted = true;
+    if (!this.submitted) {
+      this.submitted = true;
       console.log('you submitted value: ', this.model);
-      this.projectService.save (this.model);
+      this.projectService.save(this.model);
+    }
   }
 }
-
