@@ -14,10 +14,10 @@ import { ProjectService } from './project.service';
 export class DashboardComponent implements OnInit {
   projects: Project[] = [];
   constructor(private router: Router,
-              private ProjectService: ProjectService) { }  
+              private ProjectService: ProjectService) { }
   ngOnInit() {
     this.ProjectService.getProjects()
-      .then(projects => this.projects = projects);
+      .then(p => this.projects = p.length > 2 ? p.splice(0, 3) : p);
   }
 
   gotoDetail(project: Project) {
