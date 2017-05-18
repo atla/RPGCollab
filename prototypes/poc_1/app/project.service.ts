@@ -7,7 +7,8 @@ import { Project } from './project';
 
 @Injectable()
 export class ProjectService {
-  private projectsUrl = 'http://rpgcollab.duckdns.org:3000/projects';
+  private projectsUrl = 'http://185.162.250.27:5483/projects';
+  //private projectsUrl = 'http://localhost:5483/projects';
 // private projectsUrl = 'http://192.168.1.112:3000/projects';
 
   constructor(private http: Http) { }
