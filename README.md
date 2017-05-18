@@ -3,6 +3,8 @@ This is a learning playground to dive into several JS and mean technologies like
 
 The project will consist of the main web application to create, manage and collaborate on stories and data that can be used for RPG projects. The idea is that you can create your world/rooms online, add stories and actions to every area and later on be able using third party services to define the visual appearance of this areas.
 
+TEST
+
 To start of the third party service i aim to create a few Node.JS services that will generate random maps with algorithms that are commonly used in roguelike/dungeon crawlers to create the base maps.
 
 Once these basics are done you will be able to connect your areas and stories, add NPC and their dialogs as well as manage items or events.
