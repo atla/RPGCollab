@@ -18,8 +18,8 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   sub: any;
   navigated = false;
 
-  constructor(private ProjectService: ProjectService,
-    private route: ActivatedRoute) {
+  constructor(  private ProjectService: ProjectService,
+                private route: ActivatedRoute) {
   }
 
   ngOnInit() {

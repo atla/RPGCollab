@@ -1,6 +1,7 @@
 <section>
-<div>
-  <h2>{{project.name}} details!</h2>
+<div *ngIf="project">
+  <h1>{{project.name}}</h1>
+  <h2>{{project.name}}</h2>
   <div>
     <label>id: </label>{{project.id}}</div>
   <div>
