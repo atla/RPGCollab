@@ -57,11 +57,12 @@ class RoomBasedStrategy{
 
     addAllRooms (data:DungeonData){
         for (let room:Room in rooms){
-            AddRoom(data,room);
+            addRoom(data,room);
         }
     }
 
-    addDoors(data:)
-
+    addRoom (data:DungeonData,room:Room){
+        // implement me
+    }
 
 }

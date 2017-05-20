@@ -3,25 +3,23 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { Observable } from 'rxjs'
 import { Project } from './project';
 
 @Injectable()
 export class ProjectService {
   //private projectsUrl = 'http://rpgcollab.duckdns.org:3000/projects';
-  private projectsUrl = 'http://localhost:3333/projects';
-// private projectsUrl = 'http://192.168.1.112:3000/projects';
+//  private projectsUrl = 'http://localhost:3333/projects';
+ private projectsUrl = 'http://185.162.250.27:5483/projects';
 
   constructor(private http: Http) { }
-  getProjects(): Promise<Project[]> {
+ 
+  getProjects(): Observable<Project[]> {
     return this.http.get(this.projectsUrl)
-      .toPromise()
-      .then(response =>{
-        return response.json();
-      })
-      .catch(this.handleError);
+          .map(response => response.json());
   }
-
-  getProject(id: string): Promise<Project> {
+/*
+  getProject(id: string): Observable<Project> {
     return this.getProjects()
       .then(Projects => Projects.find(Project => Project._id === id));
   }
@@ -73,5 +71,5 @@ console.log(json);
   private handleError(error: any) {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
-  }
+  }*/
 }

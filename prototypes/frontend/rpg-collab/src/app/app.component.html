@@ -1,0 +1,21 @@
+<md-toolbar color="primary">
+  <md-icon class="favorite-border">favorite</md-icon>
+
+  <span>RPG Collab</span>
+  <span class="spacer-small"></span>
+    <a md-button (click)="projectsClicked();">PROJECTS</a>
+
+    <a md-button routerLink=".">ROOMS</a>
+
+  <span class="spacer"></span>
+  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+
+</md-toolbar>
+
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item> Settings </button>
+
+  <button md-menu-item> Help </button>
+</md-menu>
+
+  <router-outlet></router-outlet>

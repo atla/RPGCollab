@@ -54,6 +54,9 @@ var RoomBasedStrategy = (function () {
         this.maxRooms = _maxRoomSize;
     }
     RoomBasedStrategy.prototype.addAllRooms = function (data) {
+        for (var room in rooms) {
+            AddRoom(data, room);
+        }
     };
     return RoomBasedStrategy;
 }());

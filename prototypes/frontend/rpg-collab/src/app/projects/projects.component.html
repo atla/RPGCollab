@@ -1,0 +1,22 @@
+<md-card class="example-card" *ngFor="let project of projects">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{project.name}}</md-card-title>
+    <md-card-subtitle>{{project.subtitle}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="http://loremflickr.com/g/400/180/cats">
+  <md-card-content>
+    <p>
+      {{project.description}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="btnClick();">View</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
+</md-card>
+
+
+<span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <button md-fab><md-icon>add</md-icon></button>
+</span>

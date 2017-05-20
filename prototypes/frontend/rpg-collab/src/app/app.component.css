@@ -1,0 +1,16 @@
+.example-card {
+  width: 400px;
+      margin: 1em;
+
+}
+.example-header-image {
+  background-image: url('http://loremflickr.com/g/320/240/cats');
+  background-size: cover;
+}
+
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

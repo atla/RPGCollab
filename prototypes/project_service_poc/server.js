@@ -1,5 +1,6 @@
 var express     = require('express');
 var projects    = require('./routes/projects');
+var rooms    = require('./routes/rooms');
 var app         = express();
 
 
@@ -16,5 +17,13 @@ app.post('/projects', projects.addProject);
 app.put('/projects/:id', projects.updateProject);
 app.delete('/projects/:id', projects.deleteProject);
 
-app.listen(3000);
-console.log('Listening on port 3000...');
+app.get('/rooms', rooms.findAll);
+app.get('/rooms/:id', rooms.findById);
+app.post('/rooms', rooms.addRoom);
+app.put('/rooms/:id', rooms.updateRoom);
+app.delete('/rooms/:id', rooms.deleteRoom);
+
+var port = 3333;
+
+app.listen(port);
+console.log('Listening on port: '.concat(port));

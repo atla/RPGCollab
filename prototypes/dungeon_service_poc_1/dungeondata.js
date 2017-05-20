@@ -21,7 +21,9 @@ var Dimension = (function () {
     return Dimension;
 }());
 var DungeonTile = (function () {
-    function DungeonTile() {
+    function DungeonTile(tile) {
+        this.tile = tile;
+        this.type = tile.type;
     }
     return DungeonTile;
 }());
@@ -37,10 +39,10 @@ var DungeonData = (function () {
     };
     DungeonData.prototype.print = function () {
         for (var i = 0; i < this.dimension.area; ++i) {
-            console.log(this.getTile(i) + " ");
-            if (i % this.dimension.width == 0)
-                console.log("\ns");
-            ;
+            console.log(this.getTile(i) + ' ');
+            if (i % this.dimension.width === 0) {
+                console.log('\n');
+            }
         }
     };
     DungeonData.prototype.getTileWithCoords = function (x, y) {
