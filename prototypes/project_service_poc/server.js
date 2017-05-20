@@ -3,6 +3,11 @@ var projects    = require('./routes/projects');
 var rooms    = require('./routes/rooms');
 var app         = express();
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 var bodyParser  = require('body-parser');
 
@@ -17,6 +22,7 @@ app.post('/projects', projects.addProject);
 app.put('/projects/:id', projects.updateProject);
 app.delete('/projects/:id', projects.deleteProject);
 
+<<<<<<< HEAD
 app.get('/rooms', rooms.findAll);
 app.get('/rooms/:id', rooms.findById);
 app.post('/rooms', rooms.addRoom);
@@ -27,3 +33,9 @@ var port = 3333;
 
 app.listen(port);
 console.log('Listening on port: '.concat(port));
+=======
+var port = 5483;
+
+app.listen(port);
+console.log('Listening on port '.concat(port));
+>>>>>>> origin/master
