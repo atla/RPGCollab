@@ -8,6 +8,10 @@
   background-size: cover;
 }
 
+.app-toolbar-filler{
+  width: 60px;
+}
+
 .app-action {
   display: inline-block;
   position: fixed;

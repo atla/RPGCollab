@@ -1,6 +1,23 @@
-<md-toolbar color="primary">
-  <md-icon class="favorite-border">favorite</md-icon>
+<md-toolbar color="primary" style="position:fixed; z-index: 10">
+  
+  RPG Collab
+  <span class="app-toolbar-filler"></span>
+  <button md-button routerLink="/projects">PROJECTS</button>
+  <button md-button routerLink="/rooms">ROOMS</button>
+</md-toolbar>
+<
+  <div style="margin-top: 70px">
+    <router-outlet></router-outlet>
+  </div>
 
+<span class="app-action" [class.m2app-dark]="isDarkTheme">
+<button md-fab><md-icon>add</md-icon></button>
+</span>
+
+
+<!--
+<div style="position: fixed; width: 100%">
+  <md-toolbar color="primary">
   <span>RPG Collab</span>
   <span class="spacer-small"></span>
     <a md-button (click)="projectsClicked();">PROJECTS</a>
@@ -11,6 +28,7 @@
   <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
 
 </md-toolbar>
+</div>
 
 <md-menu #appMenu="mdMenu">
   <button md-menu-item> Settings </button>
@@ -18,4 +36,4 @@
   <button md-menu-item> Help </button>
 </md-menu>
 
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet>-->

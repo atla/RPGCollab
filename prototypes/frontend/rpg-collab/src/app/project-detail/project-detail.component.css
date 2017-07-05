@@ -1,0 +1,9 @@
+.detail-card {
+  width: 700px;
+  margin: 1em;
+}
+
+.example-header-image {
+  background-image: url('http://loremflickr.com/g/320/240/cats');
+  background-size: cover;
+}

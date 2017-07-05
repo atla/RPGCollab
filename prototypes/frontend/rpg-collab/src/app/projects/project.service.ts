@@ -11,11 +11,18 @@ export class ProjectService {
   //private projectsUrl = 'http://rpgcollab.duckdns.org:3000/projects';
 //  private projectsUrl = 'http://localhost:3333/projects';
  private projectsUrl = 'http://185.162.250.27:5483/projects';
+ private singleProjectUrl = 'http://185.162.250.27:5483/projects/';
+
 
   constructor(private http: Http) { }
  
   getProjects(): Observable<Project[]> {
     return this.http.get(this.projectsUrl)
+          .map(response => response.json());
+  }
+
+   getProject (id:string): Observable<Project[]> {
+    return this.http.get(this.singleProjectUrl.concat(id))
           .map(response => response.json());
   }
 /*

@@ -22,20 +22,13 @@ app.post('/projects', projects.addProject);
 app.put('/projects/:id', projects.updateProject);
 app.delete('/projects/:id', projects.deleteProject);
 
-<<<<<<< HEAD
 app.get('/rooms', rooms.findAll);
 app.get('/rooms/:id', rooms.findById);
 app.post('/rooms', rooms.addRoom);
 app.put('/rooms/:id', rooms.updateRoom);
 app.delete('/rooms/:id', rooms.deleteRoom);
 
-var port = 3333;
-
-app.listen(port);
-console.log('Listening on port: '.concat(port));
-=======
 var port = 5483;
 
 app.listen(port);
 console.log('Listening on port '.concat(port));
->>>>>>> origin/master

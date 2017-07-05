@@ -13,14 +13,14 @@ import { Router } from '@angular/router';
 export class ProjectsOverviewComponent {
   projects: Project[];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private router:Router) { }
 
   ngOnInit() {
     this.projectService.getProjects().subscribe(p => this.projects = p);
   }
 
 
-  btnClick = function () {
-    this.router.navigate(['/project']);
-  };
+   onSelect(project: Project) {
+    this.router.navigate(['/project', project._id]);
+  }
 }

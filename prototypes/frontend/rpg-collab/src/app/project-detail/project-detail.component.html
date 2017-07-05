@@ -1,0 +1,17 @@
+<div *ngIf="project">
+
+  <md-card class="detail-card">
+    <md-card-header>
+      <div md-card-avatar class="example-header-image"></div>
+      <md-card-title>{{project.name}}</md-card-title>
+      <md-card-subtitle>{{project.subtitle}}</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="http://loremflickr.com/g/600/180/cats">
+    <md-card-content>
+      <p>
+        {{project.description}}
+      </p>
+    </md-card-content>
+   
+  </md-card>
+</div>

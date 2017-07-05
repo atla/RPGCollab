@@ -2,20 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AppRoutingModule }  from './app.routing.module';
+import { AppRoutingModule }  from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdTabsModule, MdListModule, MdButtonToggleModule, MdSidenavModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdSidenav, MdMenuModule, MdToolbarModule, MdIconModule, MdTabsModule, MdListModule, MdButtonToggleModule, MdSidenavModule } from '@angular/material';
 import { ProjectService } from './projects/project.service';
 
 import { AppComponent } from './app.component';
 
-import { ProjectsOverviewComponent } from './projects/projects.component'
+import { ProjectsOverviewComponent } from './projects/projects.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectsOverviewComponent
+    ProjectsOverviewComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { ProjectsOverviewComponent } from './projects/projects.component'
     MdListModule,
     MdSidenavModule,
     MdButtonToggleModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MdSidenavModule
     
   ],
   providers: [ProjectService],
