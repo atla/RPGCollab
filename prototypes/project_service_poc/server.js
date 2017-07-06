@@ -19,6 +19,11 @@ app.use(bodyParser.json());
 app.get('/projects', projects.findAll);
 app.get('/projects/:id', projects.findById);
 app.post('/projects', projects.addProject);
+
+app.post('/projects/:projectId/rooms', projects.addRoom);
+app.put('/projects/:projectId/rooms/:roomId', projects.updateRoom);
+
+
 app.put('/projects/:id', projects.updateProject);
 app.delete('/projects/:id', projects.deleteProject);
 

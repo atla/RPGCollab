@@ -1,29 +1,29 @@
 var mongoose = require('mongoose');
-var RoomSchema = require ('mongoose').model('Room').schema;
+var rooms = require('./rooms');
+
+mongoose.connect('mongodb://localhost:27017/rpgd');
+
+var RoomSchema = require('mongoose').model('Room').schema;
 
 
-mongoose.connect('mongodb://localhost:27017/rpg_collab');
 
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 // Setup Database scheme
 
-var UserSchema = new Schema({
-    name: String,
-    bio: String
-});
 
-var CommentSchema = new Schema({
-    text: String,
-    author: UserSchema,
-    date: Date
-})
+
 
 var ProjectSchema = new Schema({
     name: String,
     subtitle: String,
-    creator: UserSchema,
+    createdBy: {
+
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+
+    },
     contributors: [UserSchema],
     summary: String,
     description: String,
@@ -40,7 +40,10 @@ var ProjectSchema = new Schema({
         votes: Number,
         favs: Number
     },
-    rooms : [RoomSchema]
+    rooms: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Room'
+    }]
 });
 
 var User = mongoose.model('User', UserSchema);
@@ -52,12 +55,15 @@ var handleError = function (err) {
 
 
 exports.findById = function (req, res) {
+
     Project.findOne({
         '_id': req.params.id
     }, function (err, project) {
         if (err) return handleError(err);
         res.send(project);
     })
+    .populate('createdBy')
+    .populate('rooms')
 };
 
 exports.findAll = function (req, res) {
@@ -66,6 +72,43 @@ exports.findAll = function (req, res) {
         res.send(projects);
     });
 };
+
+exports.updateRoom = function (req, res) {
+
+    /*Project.findByIdAndUpdate(
+            info._id,
+            {$push: {"rooms": }}
+        )
+
+
+        Contact.findByIdAndUpdate(
+            info._id,
+            {$push: {"messages": {title: title, msg: msg}}},
+            {safe: true, upsert: true, new : true},
+            function(err, model) {
+                console.log(err);
+            }
+        );
+    */
+}
+
+exports.addRoom = function (req, res) {
+    // find by document id and update
+    Project.findByIdAndUpdate(
+        req.params.projectId, {
+            $push: {
+                rooms: req.body
+            }
+        }, {
+            safe: true,
+            upsert: true
+        },
+        function (err, model) {
+            console.log(err);
+        }
+    );
+    res.send('Done')
+}
 
 exports.addProject = function (req, res) {
 
@@ -82,45 +125,4 @@ exports.addProject = function (req, res) {
 }
 
 exports.updateProject = function (req, res) {}
-
 exports.deleteProject = function (req, res) {}
-
-
-var populateDB = function () {
-
-
-    var user1 = {
-        name: "atla",
-        bio: "famous rpg coder"
-    };
-    var user2 = {
-        name: "atla2",
-        bio: "famous rpg coder 222"
-    };
-
-    var projects = [{
-        name: "Leihwelt reboot 2",
-        subtitle: "Yet another try",
-        creator: user,
-        contributors: [user, user2],
-        summary: "Deep down the nexus lies ...",
-        description: String,
-        comments: [{
-            text: "This is a comment",
-            author: user,
-            date: Date.now()
-        }],
-        created: Date.now(),
-        private: false,
-        meta: {
-            votes: 12,
-            favs: 3
-        }
-    }];
-
-    db.collection('projects', function (err, collection) {
-        collection.insert(projects, {
-            safe: true
-        }, function (err, result) {});
-    });
-};
